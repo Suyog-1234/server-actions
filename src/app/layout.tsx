@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Poppins, Space_Grotesk } from "next/font/google";
+import "../style/globals.css";
+import { Toaster } from 'sonner'
+import ReactQueryProvider from "@/lib/providers.ts/ReactQueryProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"], variable: "--font-poppins" });
+const space = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-space" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${poppins.variable} ${space.variable}`}>
+        <Toaster richColors />
+        <ReactQueryProvider>
+          {children}
+        </ReactQueryProvider>
+      </body>
     </html>
   );
 }

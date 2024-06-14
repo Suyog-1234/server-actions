@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-poppins {
+  font-family: var(--font-poppins);
+}
+.text-space {
+  font-family: var(--font-space);
+}
+* {
+  font-family: var(--font-poppins);
+}
+
+@layer components {
+  .container {
+    @apply max-w-[740px] lg:max-w-[940px] xl:max-w-[1140px] 2xl:max-w-[1360px];
+  }
+}
